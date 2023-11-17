@@ -32,10 +32,100 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+```
+name: kotha vamsi
+reg No: 212222040081
+```
+```
+#importing libraries
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
 
+#Reading the dataset
+df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
+df
+
+#Dropping the unwanted Columns
+df.drop(['CustomerId'],axis=1,inplace=True)
+df.drop(['Surname'],axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df
+
+#Checking for null values
+df.isnull().sum()
+
+#Checking for duplicate values
+df.duplicated()
+
+#Describing the dataset
+df.describe()
+
+#Scaling the dataset
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1
+
+#Allocating X and Y attributes
+x=df1.iloc[:,:-1].values
+x
+y=df1.iloc[:,-1].values
+y
+
+#Splitting the data into training and testing dataset
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+print(len(x_train))
+print(x_test)
+print(len(x_test))
+```
 ## OUTPUT:
-/ Show the result/
+The dataset
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/ea1fb4af-2397-4d9e-83f4-c9f34d49b6f8)
 
-## RESULT
-/Type your result here/
+Dropping unwanted features
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/d73df7b4-4f94-4176-b6e9-76ae22fa7f79)
+
+Checking for null values
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/6d530c0f-7cd6-4f14-8a42-bb06ea053564)
+
+Checking for duplication
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/b52456d4-d59c-406c-b802-abb4cb82e49c)
+
+Describing the dataset
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/f74c5480-81bc-4c67-8d7b-92635dc7d226)
+
+Scaling the values
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/b3908b2d-9ad0-424e-b5ff-af524c1c5481)
+
+X Features
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/3f71bf75-9f79-4403-9e0b-86c3b374150a)
+
+Y Features
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/3503facb-5729-4564-8336-b431401df918)
+
+Splitting the training and testing dataset
+![image](https://github.com/kothavamsi1/Ex.No.1---Data-Preprocessing/assets/119828582/4fe4c3d5-c1cc-47f6-88ec-32e17aa7eb87)
+
+
+RESULT
+
+Thus we have successfully performed Data preprocessing in a data set downloaded from Kaggle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
